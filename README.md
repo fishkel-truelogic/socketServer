@@ -5,7 +5,6 @@ socketServer
 
 ### Instrucciones de instalacion
 
-* sudo apt-get update
 * sudo wget http://nodejs.org/dist/v0.10.32/node-v0.10.32.tar.gz
 * tar -xvzf node-v0.10.32.tar.gz
 * cd node-v0.10.32/
