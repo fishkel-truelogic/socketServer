@@ -1,11 +1,23 @@
 var net = require('net');
+
+
+var port = 8888;
+var name = "";
+
+process.argv.forEach(function (val, index, array) {
+  if (val == "-p") {
+    port = array[index + 1];
+  } else if (val == "-n") {
+    name = array[index + 1];
+  }
+});
+
 var server = net.createServer(function(c) { //'connection' listener
   console.log('server connected');
   c.on('end', function() {
     console.log('server disconnected');
   });
-  c.write('hello\r\n');
-  c.pipe(c);
+    c.pipe(c);
 
     c.on('data', function(data) {
         
@@ -15,9 +27,9 @@ var server = net.createServer(function(c) { //'connection' listener
 
 });
 server.on("data", function(data) {
-	console.log(data);
+  console.log(data);
 })
 
-server.listen(8888, function() { //'listening' listener
-  console.log('server bound');
+server.listen(port, function() { //'listening' listener
+  console.log('server **' + name + '** bound in port **' + port + "**");
 });
